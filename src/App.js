@@ -51,7 +51,7 @@ class App extends Component {
         });
 
         return (
-          <div className="app"  onClick={this.hideMenu.bind(this)}>
+          <div className="app">
               <nav className="nav-wrap">
               <h2>to<span>Do</span>List</h2>
                 <div className="navbar">
@@ -75,7 +75,7 @@ class App extends Component {
                    onSubmit={this.addTodo.bind(this)} />
 
               </div>
-              <ol className="todoList">
+              <ol className="todoList" >
                   {todos}
               </ol>
               {this.state.user.id ?
@@ -115,7 +115,9 @@ class App extends Component {
         }
       }
 
-      hideMenu(){
+      hideMenu(event){
+        event.preventDefault();
+        event.stopPropagation();
         let stateCopy = JSON.parse(JSON.stringify(this.state))
         stateCopy.menu = false
         this.setState(stateCopy)

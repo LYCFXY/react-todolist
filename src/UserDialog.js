@@ -34,10 +34,12 @@ export default class UserDialog extends Component{
                                     onSignIn={this.signIn.bind(this)}
                                     onChange={this.changeFormData.bind(this)}
                                     onForgotPassword={this.showForgotPassword.bind(this)} /> :
-                    <ForgotPasswordForm onSubmit={this.resetPassword.bind(this)}
+                    <ForgotPasswordForm
                                     formData={this.state.formData}
-                                    onChange={this.changeFormData.bind(this, 'email')}
-                                    onClick={this.returnToSignIn.bind(this)}/>}
+                                    value={this.state.formData.email}
+                                    onChange={this.changeFormData.bind(this,event ,'email')}
+                                    onClick={this.returnToSignIn.bind(this)}
+                                    onSubmit={this.resetPassword.bind(this)} />}
                   </div>
               </div>
           </div>
@@ -45,7 +47,9 @@ export default class UserDialog extends Component{
     }
 
     /*切换到登录注册页面 添加返回按钮 */
-    returnToSignIn(){
+    returnToSignIn(e){
+      e.preventDefault()
+      e.stopPropagation()
       let stateCopy = JSON.parse(JSON.stringify(this.state))
       stateCopy.selectedTab = 'signInOrSignUp'
       this.setState(stateCopy)
@@ -54,11 +58,14 @@ export default class UserDialog extends Component{
     /* 重置密码触发leanCloud */
     resetPassword(e){
         e.preventDefault()
+        e.stopPropagation()
         sendPasswordResetEmail(this.state.formData.email)
+        alert("邮件已经发送, 请注意查收")
     }
 
     signUp(e){
         e.preventDefault()
+        e.stopPropagation()
         let {email, username, password} = this.state.formData
         var reg =/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
         if(email.length === 0 || username.length ===0 || password.length ===0){
@@ -105,6 +112,7 @@ export default class UserDialog extends Component{
 
     signIn(e){
         e.preventDefault()
+        e.stopPropagation()
         let {username, password} = this.state.formData
 
         if (username.length === 0 || password.length === 0) {
@@ -132,14 +140,18 @@ export default class UserDialog extends Component{
     }
 
     /* 点击忘记密码，重置密码页面出现 */
-    showForgotPassword(){
+    showForgotPassword(e){
+        e.preventDefault()
+        e.stopPropagation()
         let stateCopy = JSON.parse(JSON.stringify(this.state));
         stateCopy.selectedTab = 'forgotPassword'
         this.setState(stateCopy)
     }
 
     /*输入框onChange触发，改变setState*/
-    changeFormData(key, e){
+    changeFormData(e, key){
+        e.preventDefault()
+        e.stopPropagation()
         let stateCopy = JSON.parse(JSON.stringify(this.state))
         stateCopy.formData[key] = e.target.value
         this.setState(stateCopy)
