@@ -9,7 +9,7 @@
     "react-dom": "^15.6.1",
     "react-scripts": "0.9.5"
   },
-  "homepage": "https://lycfxy.github.io/react/my-app/build",
+  "homepage": "https://lycfxy.github.io/react-todolist/build",
   "devDependencies": {
     "gh-pages": "^1.0.0",
     "normalize.css": "^7.0.0"
