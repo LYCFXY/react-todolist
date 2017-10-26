@@ -1,0 +1,91 @@
+.enter-text {
+    padding:0 1em;
+    position: relative;
+    overflow: hidden;
+}
+.enter-text .todoInput {
+    position: relative;
+    width: 100%;
+    line-height: 1.8;
+    margin-bottom: 0.5em;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    padding: 1.5em 0.15em 1.5em 0;
+}
+
+
+
+.enter-text .todoInputStyle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 1em;
+    width: 100%;
+    height: calc(100% - 2em);
+    text-align: left;
+    pointer-events: none;
+    font-family: 'lato', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 0.12em;
+}
+.enter-text .todoInputStyle .input-content {
+    position: absolute;
+    top: 0;
+    padding: 1.6em 0;
+    width: 100%;
+    font-weight: 700;
+}
+
+.enter-text .todoInput:focus + .todoInputStyle .input-content {
+    -webkit-animation: anim-1 0.3s forwards;
+    animation: anim-1 0.3s forwards;
+}
+@-webkit-keyframes anim-1 {
+    50% {
+        opacity: 0;
+        -webkit-transform: translate3d(1em, 0, 0);
+        transform: translate3d(1em, 0, 0);
+    }
+    51% {
+        opacity: 0;
+        -webkit-transform: translate3d(-1em, -30%, 0);
+        transform: translate3d(-1em, -30%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, -30%, 0);
+        transform: translate3d(0, -30%, 0);
+    }
+}
+
+.enter-text .todoInput:focus + .todoInputStyle::after {
+    -webkit-transform: translate3d(1em, -2px, 0);
+    transform: translate3d(1em, -2px, 0);
+}
+
+.enter-text .todoInputStyle::after,
+.enter-text .todoInputStyle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 2em);
+    height: 100%;
+
+}
+.enter-text .todoInputStyle::before {
+     margin: 0 1em;
+     border-bottom: 1px solid #e0e0e0;
+}
+
+.enter-text .todoInputStyle::after {
+    margin-top: 1.5px;
+    border-bottom: 2px solid #00caff;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}

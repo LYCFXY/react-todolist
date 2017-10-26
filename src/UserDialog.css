@@ -1,0 +1,109 @@
+.UserDialog-Wrapper {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f0f0f0;
+}
+.UserDialog-Wrapper-content {
+    width: 1000px;
+}
+.UserDialog-Wrapper-content::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.left-img {
+    width: 60%;
+    float: left;
+}
+.UserDialog {
+    width: 40%;
+    float: right;
+    background: white;
+    padding: 1em 1em;
+    min-width: 20em;
+    height: 401px;
+}
+.UserDialog button{font: inherit; padding: .2em;}
+.UserDialog .forgotPassword > form { padding: 0 1em 1em; }
+
+.UserDialog > nav:first-child{ padding: 1em; margin-left: -2em;}
+.UserDialog > nav:first-child label{ margin-left: 2em; cursor: pointer;}
+
+.UserDialog > .panes { padding: 0 1em 1em; }
+
+.UserDialog form>.row.actions{ padding-left: 4em; display: flex; align-items: center;}
+
+.UserDialog button{font: inherit; padding: .2em;}
+
+.UserDialog .panes {
+    padding-right: 2.4em;
+}
+
+.UserDialog .panes .row {
+    display: flex;
+    padding: .3em 0;
+}
+.UserDialog .panes .row.actions {
+    height: 5em;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.UserDialog .panes .input-style {
+    display: block;
+    float: right;
+    width: 202px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    outline: none;
+    margin: 0.2em 0;
+}
+.UserDialog .panes .input-style:focus {
+    border: 1px solid #00C0EE;
+    box-shadow: 0 0 1px #00C0EE;
+}
+.UserDialog .panes .input-name {
+    flex: 1;
+    padding: 0 20px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 40px;
+}
+.UserDialog .panes .submit {
+    width: 202px;
+    background: #00C0EE;
+    border-radius: none;
+    border: none;
+    color: #fff;
+    padding: 6px 20px;
+    margin: 10px 0;
+    border: 1px solid #00C0EE;
+}
+.UserDialog .panes  .forget {
+    text-decoration: none;
+    color: #00C0EE;
+}
+.UserDialog .panes  .forget:hover {
+    color: #666;
+}
+
+
+/* 忘记密码的样式 */
+.UserDialog .forgotPassword {
+    margin-top: 40px;
+    padding-right: 20px;
+}

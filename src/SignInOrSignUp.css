@@ -1,0 +1,32 @@
+.signInOrSignUp {
+}
+.sign-wrap::after{
+    content: "";
+    display: block;
+    clear: both;
+    border-bottom:1px solid #f0f0f0;
+    margin-bottom: 2em;
+}
+.sign-wrap .switch-signUp,
+.sign-wrap .switch-signIn {
+    font-size: 1.25em;
+    color: #999;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 1.5em;
+}
+
+.sign-wrap .switch-signUp {
+    float: left;
+    margin-left: 3.75em;
+
+}
+
+.sign-wrap .switch-signIn {
+    float: right;
+    margin-right: 3.75em;
+}
+.sign-wrap .active {
+    color: #00C0EE;
+    border-bottom: 2px solid #00C0EE;
+}

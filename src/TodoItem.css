@@ -1,0 +1,19 @@
+.TodoItem {
+    padding: .5em;
+    display: flex;
+    align-item: center;
+}
+
+.TodoItem>.title {
+    flex-grow: 1;
+    padding: 0 .5em;
+}
+.TodoItem .finished {
+    width: 1.2em;
+    height: 1.2em;
+}
+.TodoItem .delete {
+    width: 1.2em;
+    height: 1.2em;
+    border: none;
+}
