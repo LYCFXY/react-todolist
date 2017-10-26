@@ -59,6 +59,16 @@ export default class UserDialog extends Component{
     resetPassword(e){
         e.preventDefault()
         e.stopPropagation()
+        var email = this.state.formData.email
+        var reg =/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+        if(email.length === 0){
+          alert('请填入完整信息')
+          return
+        };
+        if(!reg.test(email)){
+           alert("您输入的邮箱格式不正确")
+           return
+        }
         sendPasswordResetEmail(this.state.formData.email)
         alert("邮件已经发送, 请注意查收")
     }
